@@ -32,9 +32,9 @@ export function Hero() {
     }
 
     return (
-        <section id="hero" className="pt-32 pb-20 px-4">
+        <section id="hero" className="pt-32 pb-20 px-4 border-4">
             <div className="max-w-6xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="w-full grid md:grid-cols-2 gap-12 items-center">
                     {/* Photo */}
                     <div className="flex justify-center">
                         <div className="w-64 h-64 rounded-lg bg-neutral-200 overflow-hidden shadow-lg">
@@ -43,16 +43,16 @@ export function Hero() {
                     </div>
 
                     {/* Content */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 w-full m-0">
                         <div>
                             <p className="text-primary font-semibold text-sm mb-2">{t.salute.toUpperCase()}</p>
                             <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{t.title}</h1>
                             <p className="text-2xl text-accent font-semibold mt-2">{t.subtitle}</p>
                         </div>
 
-                        <p className="text-neutral-400 text-lg leading-relaxed max-w-md">{t.description}</p>
+                        <p className="text-neutral-400 text-lg leading-relaxed">{t.description}</p>
 
-                        <div className="flex gap-4 pt-4">
+                        <div className="flex flex-col md:flex-row gap-4 pt-4">
                             <Button size="lg" onClick={scrollToProjects} className="bg-primary hover:bg-primary-light text-white">
                                 {t.cta}
                             </Button>

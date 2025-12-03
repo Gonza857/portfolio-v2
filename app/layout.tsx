@@ -10,7 +10,6 @@ const _geistMono = Geist_Mono({subsets: ["latin"]})
 export const metadata: Metadata = {
     title: "Portfolio - Desarrollador",
     description: "Mi portfolio profesional - Full Stack Developer",
-    generator: "v0.app",
     icons: {
         icon: [
             {
@@ -37,7 +36,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="es" className="dark">
-        <body className={`font-sans antialiased`}>
+        <body className={`font-sans antialiased w-full`}>
         <Navbar/>
         {children}
         {/*<Analytics />*/}

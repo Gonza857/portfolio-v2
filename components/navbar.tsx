@@ -13,6 +13,7 @@ const translations = {
         demos: "Demos",
         certifications: "Certificaciones",
         tech: "Tecnologías",
+        cv: "Descargar CV"
     },
     en: {
         experience: "Experience",
@@ -21,6 +22,7 @@ const translations = {
         demos: "Demos",
         certifications: "Certifications",
         tech: "Technologies",
+        cv: "Download CV"
     },
 }
 
@@ -45,10 +47,6 @@ export function Navbar() {
                     <span className="text-2xl">/&gt;</span>
                 </div>
 
-                {/*<a href="#" className="font-semibold text-lg text-foreground hover:text-primary transition">*/}
-                {/*    Portfolio*/}
-                {/*</a>*/}
-
                 {/* Navigation Links */}
                 <div className="hidden lg:flex items-center gap-1">
                     {[
@@ -71,27 +69,7 @@ export function Navbar() {
 
                 {/* Right actions */}
                 <div className="flex items-center gap-2">
-                    {/* Language Toggle */}
-                    <div className="flex items-center border border-border rounded-lg p-1 bg-neutral-50">
-                        <button
-                            onClick={() => setLanguage("es")}
-                            className={`px-2 py-1 text-xs font-medium transition cursor-pointer ${
-                                language === "es" ? "bg-primary text-white" : "text-neutral-600"
-                            }`}
-                        >
-                            ES
-                        </button>
-                        <button
-                            onClick={() => setLanguage("en")}
-                            className={`px-2 py-1 text-xs font-medium transition cursor-pointer ${
-                                language === "en" ? "bg-primary text-white" : "text-neutral-600"
-                            }`}
-                        >
-                            EN
-                        </button>
-                    </div>
-
-                    <Button size="sm" className="gap-2 hidden sm:flex bg-transparent hover:text-primary"
+                    <Button size="sm" className="gap-2 flex bg-transparent hover:text-primary"
                             variant="outline" asChild>
                         <a href={language === "en" ? "/CV--RAMOS-GONZALO-EN.pdf" : "/CV--RAMOS-GONZALO-ES.pdf"}
                            download>
@@ -108,7 +86,7 @@ export function Navbar() {
             </div>
 
             {mobileMenuOpen && (
-                <div className="lg:hidden bg-background border-t border-border">
+                <div className="lg:hidden bg-slate-900/50 border-t border-border ">
                     <div className="max-w-6xl mx-auto px-4 py-4 space-y-2">
                         {[
                             { id: "experience", label: t.experience },
@@ -126,14 +104,33 @@ export function Navbar() {
                                 {item.label}
                             </button>
                         ))}
-                        <Button size="sm" className="gap-2 hidden sm:flex bg-transparent hover:text-primary"
+                        <Button size="sm" className="gap-2 sm:flex bg-transparent hover:text-primary"
                                 variant="outline" asChild>
                             <a href={language !== "en" ? "/CV--RAMOS-GONZALO-ES.pdf" : "/CV--RAMOS-GONZALO-EN.pdf"}
                                download>
                                 <Download className="w-4 h-4"/>
-                                CV
+                                {t.cv}
                             </a>
                         </Button>
+                        {/* Language Toggle */}
+                        <div className="w-fit flex items-center border border-border rounded-lg p-1 bg-neutral-50">
+                            <button
+                                onClick={() => setLanguage("es")}
+                                className={`px-2 py-1 text-xs font-medium transition cursor-pointer rounded-md ${
+                                    language === "es" ? "bg-primary text-white" : "text-neutral-600"
+                                }`}
+                            >
+                                ES
+                            </button>
+                            <button
+                                onClick={() => setLanguage("en")}
+                                className={`px-2 py-1 text-xs font-medium transition cursor-pointer rounded-md ${
+                                    language === "en" ? "bg-primary text-white" : "text-neutral-600"
+                                }`}
+                            >
+                                EN
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

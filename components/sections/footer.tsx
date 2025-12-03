@@ -4,7 +4,7 @@ import {useLanguageStore} from "@/context/language-context"
 import {ExternalLink, Github, Linkedin, Mail} from "lucide-react"
 
 export function Footer() {
-    const { language } = useLanguageStore()
+    const { language, setLanguage } = useLanguageStore()
 
     const content = {
         es: {
@@ -12,12 +12,14 @@ export function Footer() {
             by: "por",
             rights: "Todos los derechos reservados",
             quickLinks: "Enlaces rápidos",
+            language: "Idioma"
         },
         en: {
             madeWith: "Made with",
             by: "by",
             rights: "All rights reserved",
             quickLinks: "Quick links",
+            language: "Language"
         },
     }
 
@@ -89,8 +91,31 @@ export function Footer() {
                         </nav>
                     </div>
 
+                    <div>
+                        <h3 className="mb-4 text-sm font-semibold text-cyan-400">{t.language}</h3>
+                        {/* Language Toggle */}
+                        <div className="w-fit flex items-center border border-border rounded-lg p-1 bg-neutral-50">
+                            <button
+                                onClick={() => setLanguage("es")}
+                                className={`px-2 py-1 text-xs font-medium transition cursor-pointer rounded-md ${
+                                    language === "es" ? "bg-primary text-white" : "text-neutral-600"
+                                }`}
+                            >
+                                ES
+                            </button>
+                            <button
+                                onClick={() => setLanguage("en")}
+                                className={`px-2 py-1 text-xs font-medium transition cursor-pointer rounded-md ${
+                                    language === "en" ? "bg-primary text-white" : "text-neutral-600"
+                                }`}
+                            >
+                                EN
+                            </button>
+                        </div>
+                    </div>
+
                     {/* Sección de información */}
-                    <div className="text-right">
+                    <div className="text-center md:text-right">
                         <p className="text-sm text-neutral-400">
                             {t.madeWith} <span className="text-cyan-400">❤</span> {t.by}{" "}
                             <span className="font-semibold text-cyan-400">Gonzalo Ramos</span>
