@@ -81,9 +81,9 @@ export function Experience() {
 
                 <div className="space-y-6">
                     {data.map((exp) => (
-                        <Card key={exp.id} className="p-6 hover:shadow-md transition">
+                        <Card key={exp.id} className="p-6 hover:shadow-md transition gap-2 md:gap-6">
 
-                            <div className="flex gap-4 mb-4">
+                            <div className="flex gap-4">
                                 <div className="flex-shrink-0">
                                     {exp.logo ? (
                                         <img
@@ -105,7 +105,7 @@ export function Experience() {
                                 </div>
 
                                 <div className="flex-1">
-                                    <div className="flex justify-between items-start mb-3">
+                                    <div className="flex flex-col md:flex-row justify-between items-start mb-3">
                                         <div>
                                             <h3 className="text-xl font-semibold text-foreground">{exp.position}</h3>
                                             <p className="text-primary font-medium">{exp.company}</p>
